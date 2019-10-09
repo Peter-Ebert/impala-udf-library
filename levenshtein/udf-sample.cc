@@ -68,7 +68,9 @@ IMPALA_UDF_EXPORT
 IntVal LevenshteinDistance(FunctionContext* context, const StringVal& arg1, const StringVal& arg2) {
   if (arg1.is_null || arg2.is_null) return IntVal::null();
 
+  std::string str1 (arg1.ptr, arg1.ptr+arg1.len);
+  std::string str2 (arg2.ptr, arg2.ptr+arg2.len);
 
-  return impLevenshteinDistance("hello", "world");
+  return impLevenshteinDistance(str1, str2);
 }
 
