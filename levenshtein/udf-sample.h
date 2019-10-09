@@ -26,7 +26,7 @@ using namespace impala_udf;
 //          location '/user/cloudera/libudfsample.so' SYMBOL='CountVowels';
 //        > select countvowels('abracadabra hocus pocus');
 //        > select countvowels(c1) from t1;
-IntVal CountVowels(FunctionContext* context, const StringVal& arg1);
+IntVal LevenshteinDistance(FunctionContext* context, const StringVal& arg1, const StringVal& arg1);
 
 
 #endif

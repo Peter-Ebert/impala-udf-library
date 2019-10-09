@@ -26,11 +26,12 @@ int main(int argc, char** argv) {
   // Using the test harness helpers, validate the UDF returns correct results.
   // These tests validate:
   
-  passed &= UdfTestHarness::ValidateUdf<IntVal, StringVal>(
-      CountVowels, StringVal("hello"), IntVal(2));
+  passed &= UdfTestHarness::ValidateUdf<IntVal, StringVal, StringVal>(
+      CountVowels, StringVal("hello"), StringVal("world"), IntVal(4));
   // passed &= UdfTestHarness::ValidateUdf<IntVal, IntVal, IntVal>(
   //     AddUdf, IntVal::null(), IntVal(2), IntVal::null());
-
+  // passed &= UdfTestHarness::ValidateUdf<IntVal, StringVal, StringVal>(
+  //     CountVowels, StringVal("cat"), StringVal("bat"), IntVal(1));
 
   cout << "Tests " << (passed ? "Passed." : "Failed.") << endl;
   return !passed;
