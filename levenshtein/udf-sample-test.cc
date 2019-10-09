@@ -27,11 +27,10 @@ int main(int argc, char** argv) {
   // These tests validate:
   
   passed &= UdfTestHarness::ValidateUdf<IntVal, StringVal, StringVal>(
-      CountVowels, StringVal("hello"), StringVal("world"), IntVal(4));
-  // passed &= UdfTestHarness::ValidateUdf<IntVal, IntVal, IntVal>(
-  //     AddUdf, IntVal::null(), IntVal(2), IntVal::null());
+      LevenshteinDistance, StringVal("hello"), StringVal("world"), IntVal(4));
+
   // passed &= UdfTestHarness::ValidateUdf<IntVal, StringVal, StringVal>(
-  //     CountVowels, StringVal("cat"), StringVal("bat"), IntVal(1));
+  //     LevenshteinDistance, StringVal("cat"), StringVal("bat"), IntVal(1));
 
   cout << "Tests " << (passed ? "Passed." : "Failed.") << endl;
   return !passed;
