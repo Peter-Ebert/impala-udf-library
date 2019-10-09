@@ -62,8 +62,6 @@ size_t impLevenshteinDistance(const std::string &s1, const std::string &s2)
   return result;
 }
 
-// Count all occurrences of the letters (a,e,i,o,u) in the input string.
-// Case-insensitive, so also counts (A,E,I,O,U).
 IMPALA_UDF_EXPORT
 IntVal LevenshteinDistance(FunctionContext* context, const StringVal& arg1, const StringVal& arg2) {
   if (arg1.is_null || arg2.is_null) return IntVal::null();
