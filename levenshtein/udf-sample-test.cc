@@ -33,7 +33,7 @@ int main(int argc, char** argv) {
       LevenshteinDistance, StringVal("cat"), StringVal("bat"), IntVal(1));
 
   passed &= UdfTestHarness::ValidateUdf<IntVal, StringVal, StringVal>(
-      LevenshteinDistance, StringVal("null"), StringVal::null(), StringVal::null());
+      LevenshteinDistance, StringVal("null"), StringVal::null(), IntVal::null());
 
   cout << "Tests " << (passed ? "Passed." : "Failed.") << endl;
   return !passed;
