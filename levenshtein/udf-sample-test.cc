@@ -26,7 +26,7 @@ int main(int argc, char** argv) {
   // Using the test harness helpers, validate the UDF returns correct results.
   // These tests validate:
   
-  passed &= UdfTestHarness::ValidateUdf<StringVal, StringVal>(
+  passed &= UdfTestHarness::ValidateUdf<StringVal, IntVal>(
       CountVowels, StringVal("hello"), IntVal(2));
   // passed &= UdfTestHarness::ValidateUdf<IntVal, IntVal, IntVal>(
   //     AddUdf, IntVal::null(), IntVal(2), IntVal::null());
