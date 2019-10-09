@@ -20,26 +20,6 @@
 
 using namespace impala_udf;
 
-// Usage: > create function add(int, int) returns int
-//          location '/user/cloudera/libudfsample.so' SYMBOL='AddUdf';
-//        > select add(1, 2);
-IntVal AddUdf(FunctionContext* context, const IntVal& arg1, const IntVal& arg2);
-
-// Returns true if x is approximately equal to y.
-// Usage: > create function fuzzy_equals(double, double) returns boolean
-//          location '/user/cloudera/libudfsample.so' SYMBOL='FuzzyEquals';
-//        > select fuzzy_equals(1, 1.00000001);
-BooleanVal FuzzyEquals(FunctionContext* context, const DoubleVal& x, const DoubleVal& y);
-
-// Perform tests, calculations, and transformations
-// on a string value, using the set of letters 'aeiou'.
-
-// Usage: > create function hasvowels(string) returns boolean
-//          location '/user/cloudera/libudfsample.so' SYMBOL='HasVowels';
-//        > select hasvowels('banana');
-//        > select hasvowels('grr hm shhh');
-//        > select hasvowels(c1) from t1;
-BooleanVal HasVowels(FunctionContext* context, const StringVal& input);
 
 
 // Usage: > create function countvowels(string) returns int
@@ -48,24 +28,5 @@ BooleanVal HasVowels(FunctionContext* context, const StringVal& input);
 //        > select countvowels(c1) from t1;
 IntVal CountVowels(FunctionContext* context, const StringVal& arg1);
 
-// Usage: > create function stripvowels(string) returns string
-//          location '/user/cloudera/libudfsample.so' SYMBOL='StripVowels';
-//        > select stripvowels('colour color');
-//        > select stripvowels(c1) from t1;
-StringVal StripVowels(FunctionContext* context, const StringVal& arg1);
-
-// If 'val' is constant, returns 'val', otherwise returns null. This is a simple toy UDF
-// demonstrating how to use prepare and close functions to maintain shared state.
-// Requires Impala 1.3 or higher.
-// Usage: > create function constantarg(int) returns int
-//          location '/user/cloudera/libudfsample.so' symbol='ReturnConstantArg'
-//          prepare_fn='ReturnConstantArgPrepare' close_fn='ReturnConstantArgClose';
-//        > select constantarg(1 + 1);
-//        > select constantarg(c1) from t1 limit 1;
-IntVal ReturnConstantArg(FunctionContext* context, const IntVal& val);
-void ReturnConstantArgPrepare(
-    FunctionContext* context, FunctionContext::FunctionStateScope scope);
-void ReturnConstantArgClose(
-    FunctionContext* context, FunctionContext::FunctionStateScope scope);
 
 #endif
