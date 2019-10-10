@@ -44,14 +44,11 @@ size_t impLevenshteinDistance(const std::string &s1, const std::string &s2)
       size_t upper = costs[j+1];
       if( *it1 == *it2 )
       {
-      costs[j+1] = corner;
-    }
-      else
-    {
-    size_t t(upper<corner?upper:corner);
+        costs[j+1] = corner;
+      } else {
+        size_t t(upper<corner?upper:corner);
         costs[j+1] = (costs[j]<t?costs[j]:t)+1;
-    }
- 
+      }
       corner = upper;
     }
   }
